@@ -98,6 +98,7 @@ public class PriamConfiguration implements IConfiguration
     private static final String CONFIG_RESTORE_CF_FILTER = PRIAM_PRE + ".restore.cf.filter";
     
     private static final String CONFIG_CL_BK_ENABLE = PRIAM_PRE + ".backup.commitlog.enable";
+    private static final String CONFIG_LOG4J_PROP_FILE = PRIAM_PRE + ".log4j.properties";
     private static final String CONFIG_AUTO_RESTORE_SNAPSHOTNAME = PRIAM_PRE + ".restore.snapshot";
     private static final String CONFIG_BUCKET_NAME = PRIAM_PRE + ".s3.bucket";
     private static final String CONFIG_BACKUP_SCHEDULE_TYPE = PRIAM_PRE + ".backup.schedule.type";
@@ -519,6 +520,12 @@ public class PriamConfiguration implements IConfiguration
     public boolean isCommitLogBackup()
     {
         return config.get(CONFIG_CL_BK_ENABLE, false);
+    }
+
+    @Override
+    public String getLog4jProperties()
+    {
+        return config.get(CONFIG_LOG4J_PROP_FILE, (String)null);
     }
 
     @Override

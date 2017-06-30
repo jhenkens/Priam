@@ -121,6 +121,11 @@ public interface IConfiguration {
     public boolean isCommitLogBackup();
 
     /**
+     * @return gets the file location of log4j.properties
+     */
+    public String getLog4jProperties();
+
+    /**
      * @return Cassandra's JMX port
      */
     public int getJmxPort();

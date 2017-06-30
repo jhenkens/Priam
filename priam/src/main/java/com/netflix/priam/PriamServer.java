@@ -32,6 +32,7 @@ import com.netflix.priam.restore.GoogleCryptographyRestoreStrategy;
 import com.netflix.priam.restore.RestoreContext;
 import com.netflix.priam.scheduler.PriamScheduler;
 import com.netflix.priam.utils.CassandraMonitor;
+import com.netflix.priam.utils.Log4JPropertyManager;
 import com.netflix.priam.utils.Sleeper;
 import com.netflix.priam.utils.TuneCassandra;
 import org.apache.commons.collections4.CollectionUtils;
@@ -67,6 +68,7 @@ public class PriamServer {
 
         // start to schedule jobs
         scheduler.start();
+        scheduler.runTaskNow(Log4JPropertyManager.class);
 
         // update security settings.
         if (config.isMultiDC()) {
